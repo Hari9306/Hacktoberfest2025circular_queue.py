@@ -1,5 +1,5 @@
 class CircularQueue:
-    def __init__(self, size):
+    def _init_(self, size):
         self.size = size
         self.queue = [None] * size
         self.front = self.rear = -1
@@ -12,6 +12,7 @@ class CircularQueue:
         else:
             self.rear = (self.rear + 1) % self.size
         self.queue[self.rear] = item
+        return "Inserted"  # ✅ Return confirmation
 
     def dequeue(self):
         if self.front == -1:
@@ -27,4 +28,4 @@ cq = CircularQueue(3)
 cq.enqueue(1)
 cq.enqueue(2)
 cq.enqueue(3)
-print(cq.enqueue(4))  # Expected "Full", but ❌ returns None
+print(cq.enqueue(4))
